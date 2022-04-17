@@ -7,3 +7,4 @@ project.tgz
 /config
 /logs
 /.web-cache
+/node_modules
