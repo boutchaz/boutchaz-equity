@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import Logo from "@/ui/Logo/Logo";
-import Navigation from "@/ui/Navigation";
+import Logo from "ui/Logo/Logo";
+import Navigation from "ui/Navigation";
 // import SearchDropdown from "./SearchDropdown";
 // import ButtonPrimary from "@/ui/Button/ButtonPrimary";
 // import MenuBar from "@/ui/MenuBar/MenuBar";
-import SwitchDarkMode from "@/ui/SwitchDarkMode";
+import SwitchDarkMode from "ui/SwitchDarkMode";
 
 export interface MainNav1Props {
   isTop: boolean;

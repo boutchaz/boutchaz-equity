@@ -1,5 +1,5 @@
-import { MegamenuItem, NavItemType } from "@/ui/Navigation/NavigationItem";
-import ncNanoId from "@/utils/ncNanoId";
+import { MegamenuItem, NavItemType } from "ui/Navigation/NavigationItem";
+import ncNanoId from "utils/ncNanoId";
 import __megamenu from "@/data/jsons/__megamenu.json";
 
 const megaMenuDemo: MegamenuItem[] = [

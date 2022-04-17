@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import Footer from '@/ui/theme/Footer/Footer';
-import Header from '@/ui/theme/Header/Header';
+import Footer from 'ui/theme/Footer/Footer';
+import Header from 'ui/theme/Header/Header';
 
 
 enum VariantTypes {

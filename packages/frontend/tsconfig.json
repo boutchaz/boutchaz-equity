@@ -14,11 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@/ui/*": ["pages/app/ui/*"],
-      "@/data/*": ["pages/app/data/*"],
-      "@/utils/*": ["pages/app/utils/*"]
+      "@/ui/*": ["ui/*"],
+      "@/data/*": ["data/*"],
+      "@/styles/*": ["styles/*"],
+      "@/utils/*": ["utils/*"],
+      "@/modules/*": ["modules/*"]
       
     }
   },
