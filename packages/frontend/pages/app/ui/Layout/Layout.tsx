@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps & LayoutInterface> = ({
   backgroundColor,
   title,
 }) => (
-  <>
+  <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
     <Header
       {...{
         showSidebars,
@@ -40,7 +40,7 @@ const Layout: React.FC<LayoutProps & LayoutInterface> = ({
     />
     <>{children}</>
     {showFooter && <Footer />}
-  </>
+  </div>
 );
 
 export default Layout;
