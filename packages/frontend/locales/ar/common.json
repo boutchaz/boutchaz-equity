@@ -1,0 +1,13 @@
+
+  {
+    "title": "Hello arab world",
+    "variable-example": "Using a variable {{count}}",
+    "language-name-ar":"arabe",
+    "sign-up":"اشتراك",
+    "home":"الصفحة الرئيسية",
+    "properties":"عقارات",
+    "properties-list":"العقارات المتاحة",
+    "property-type":"نوع العقار",
+    "beds-room":"غرف الأسرة",
+    "on-sale":"للبيع"
+  }

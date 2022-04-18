@@ -45,9 +45,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({
   // }, [history]);
 
   const onMouseEnterMenu = (id: string) => {
-    console.log(menuCurrentHovers)
     setMenuCurrentHovers((state) => [...state, id]);
-    console.log(menuCurrentHovers)
   };
 
   const onMouseLeaveMenu = (id: string) => {

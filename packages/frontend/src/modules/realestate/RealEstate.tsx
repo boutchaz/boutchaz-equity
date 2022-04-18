@@ -1,11 +1,17 @@
 import React, { FC } from "react";
 import HeroRealEstateSearchForm from "@/modules/realestate/components/HeroRealEstateSearchForm";
+import useTranslation from 'next-translate/useTranslation'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export interface SectionHero2Props {
   className?: string;
 }
 
 const RealEstate: FC<SectionHero2Props> = ({ className = "", children }) => {
+  const { t } = useTranslation('common');
+  const router = useRouter()
+
   return (
     <div className="nc-PageHome2 relative overflow-hidden">
       <div className="container relative space-y-24 mb-24 lg:space-y-32 lg:mb-32">
@@ -30,6 +36,7 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }) => {
                   ) : (
                     <h2 className="font-semibold text-4xl md:text-5xl xl:text-7xl !leading-[110%]">
                       Find Your Best <br /> Smart Real Estate
+                      {t('home')}
                     </h2>
                   )}
                 </div>
