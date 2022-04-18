@@ -26,11 +26,10 @@ export interface NavigationItemProps {
   menuItem: NavItemType;
 }
 
-type NavigationItemWithRouterProps = RouteComponentProps & NavigationItemProps;
+type NavigationItemWithRouterProps = NavigationItemProps;
 
 const NavigationItem: FC<NavigationItemWithRouterProps> = ({
-  menuItem,
-  history,
+  menuItem
 }) => {
   const [menuCurrentHovers, setMenuCurrentHovers] = useState<string[]>([]);
 

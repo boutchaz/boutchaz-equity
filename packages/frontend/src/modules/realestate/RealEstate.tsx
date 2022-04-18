@@ -1,14 +1,13 @@
 import React, { FC } from "react";
 import HeroRealEstateSearchForm from "@/modules/realestate/components/HeroRealEstateSearchForm";
 import useTranslation from 'next-translate/useTranslation'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 export interface SectionHero2Props {
   className?: string;
 }
 
-const RealEstate: FC<SectionHero2Props> = ({ className = "", children }) => {
+const RealEstate: FC<SectionHero2Props> = ({ className = "", children }:any):any => {
   const { t } = useTranslation('common');
   const router = useRouter()
 
