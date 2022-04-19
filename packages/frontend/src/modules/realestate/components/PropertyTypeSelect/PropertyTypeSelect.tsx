@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { FC } from "react";
 import Checkbox from "@/ui/Checkbox";
+import useTranslation from 'next-translate/useTranslation';
 
 // DEMO DATA
 const typeOfProperty = [
@@ -36,6 +37,8 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
   onChange,
   fieldClassName = "[ nc-hero-field-padding ]",
 }) => {
+  const { t, lang } = useTranslation('common');
+
   return (
     <Popover className="flex relative [ nc-flex-1 ]">
       {({ open, close }) => (
@@ -69,10 +72,10 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
                 ></path>
               </svg>
             </div>
-            <div className="flex-grow">
-              <span className="block xl:text-lg font-semibold">Type</span>
-              <span className="block mt-1 text-sm text-neutral-400 leading-none font-light ">
-                Property type
+            <div className="flex-grow rtl:pr-5 rtl:text-right">
+              <span className="rtl:text-right block xl:text-lg font-semibold"> {t('type')}</span>
+              <span className="rlt:text-right block mt-1 text-sm text-neutral-400 leading-none font-light ">
+                {t('property-type')}
               </span>
             </div>
           </Popover.Button>

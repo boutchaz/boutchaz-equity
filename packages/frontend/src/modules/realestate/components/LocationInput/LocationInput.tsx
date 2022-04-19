@@ -192,7 +192,7 @@ const LocationInput: FC<LocationInputProps> = ({
             />
           </svg>
         </div>
-        <div className="flex-grow">
+        <div className="flex-grow rtl:pr-4">
           <input
             className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-800 dark:placeholder-neutral-200 truncate`}
             placeholder={placeHolder}
@@ -201,7 +201,7 @@ const LocationInput: FC<LocationInputProps> = ({
             onChange={(e) => setValue(e.currentTarget.value)}
             ref={inputRef}
           />
-          <span className="block mt-0.5 text-sm text-neutral-400 font-light ">
+          <span className="rtl:text-right block mt-0.5 text-sm text-neutral-400 font-light ">
             <span className="line-clamp-1">{!!value ? placeHolder : desc}</span>
           </span>
           {value && showPopover && (

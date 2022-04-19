@@ -8,6 +8,9 @@
     "properties":"عقارات",
     "properties-list":"العقارات المتاحة",
     "property-type":"نوع العقار",
+    "type":"العقار",
     "beds-room":"غرف الأسرة",
-    "on-sale":"للبيع"
+    "on-sale":"للبيع",
+    "language":"اللغة",
+    "price-range":"اختر النطاق السعري"
   }

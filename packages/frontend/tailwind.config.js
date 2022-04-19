@@ -1,4 +1,10 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '')
+const em = (px, base) => `${round(px / base)}em`
 
 // Custom color with css variable color in __theme_color.scss
 function customColors(cssVar) {
@@ -69,6 +75,7 @@ module.exports = {
           900: customColors("--c-neutral-900"),
         },
       },
+
     },
   },
   variants: {
@@ -79,5 +86,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
+    require('tailwindcss-rtl'),
   ],
 };

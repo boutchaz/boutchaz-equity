@@ -5,15 +5,16 @@ import Navigation from "ui/Navigation";
 // import ButtonPrimary from "@/ui/Button/ButtonPrimary";
 // import MenuBar from "@/ui/MenuBar/MenuBar";
 import SwitchDarkMode from "ui/SwitchDarkMode";
+import SwitchLanguage from "ui/SwitchLanguage";
 
-export interface MainNav1Props {
+export interface MainNavProps {
   isTop: boolean;
 }
 
-const MainNav1: FC<MainNav1Props> = ({ isTop }) => {
+const MainNav: FC<MainNavProps> = ({ isTop }) => {
   return (
     <div
-      className={`nc-MainNav1 relative z-10 ${
+      className={`nc-MainNav relative z-10 ${
         isTop ? "onTop " : "notOnTop backdrop-filter"
       }`}
     >
@@ -25,6 +26,7 @@ const MainNav1: FC<MainNav1Props> = ({ isTop }) => {
         <div className="flex-shrink-0 flex items-center justify-end text-neutral-700 dark:text-neutral-100 space-x-1">
           <div className="hidden items-center xl:flex space-x-1">
             <SwitchDarkMode />
+            <SwitchLanguage />
             {/* <SearchDropdown /> */}
             <div className="px-1" />
             {/* <ButtonPrimary href="/login">Sign up</ButtonPrimary> */}
@@ -40,4 +42,4 @@ const MainNav1: FC<MainNav1Props> = ({ isTop }) => {
   );
 };
 
-export default MainNav1;
+export default MainNav;
