@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 // import "react-dates/initialize";
 import RealEstateSearchForm from "@/modules/realestate/components/RealEstateSearchForm";
+import useTranslation from 'next-translate/useTranslation';
 
-export type SearchRealEstateTab = "Buy" | "Rent" | "Sell";
+export type SearchRealEstateTab = "buy" | "rent" | "Sell";
 
 export interface HeroRealEstateSearchFormProps {
   className?: string;
@@ -11,10 +12,11 @@ export interface HeroRealEstateSearchFormProps {
 
 const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
   className = "",
-  currentTab = "Buy",
+  currentTab = "buy",
 }) => {
-  const tabs: SearchRealEstateTab[] = ["Buy", "Rent"];
+  const tabs: SearchRealEstateTab[] = ["buy", "rent"];
   const [tabActive, setTabActive] = useState<SearchRealEstateTab>(currentTab);
+  const { t, lang } = useTranslation('common');
 
   const renderTab = () => {
     return (
@@ -33,7 +35,7 @@ const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
               {active && (
                 <span className="rtl:text-right block w-2.5 h-2.5 rounded-full bg-neutral-800 dark:bg-neutral-100 ltr:mr-2 rtl:ml-2" />
               )}
-              <span>{tab}</span>
+              <span>{t(tab)}</span>
             </li>
           );
         })}

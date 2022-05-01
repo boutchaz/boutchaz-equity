@@ -12,5 +12,9 @@
     "beds-room":"غرف الأسرة",
     "on-sale":"للبيع",
     "language":"اللغة",
-    "price-range":"اختر النطاق السعري"
+    "price-range":"اختر النطاق السعري",
+    "location":"الموقع",
+    "buy":"شراء",
+    "rent":"كراء",
+    "property-location":"مكان العقار"
   }
