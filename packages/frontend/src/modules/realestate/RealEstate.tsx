@@ -1,16 +1,23 @@
 import React, { FC } from "react";
+
 import HeroRealEstateSearchForm from "@/modules/realestate/components/HeroRealEstateSearchForm";
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
-
+import { useQuery } from 'react-query'
+import client from 'utils/axios'
 export interface SectionHero2Props {
   className?: string;
+}
+async function fetchProperties() {
+  const {data} =  await client.get('http://localhost:1337/api/equities');
+  return data
 }
 
 const RealEstate: FC<SectionHero2Props> = ({ className = "", children }:any):any => {
   const { t } = useTranslation('common');
   const router = useRouter()
-
+  const { isLoading, isError, data, error } = useQuery('properties', fetchProperties);
+  console.log(data)
   return (
     <div className="nc-PageHome2 relative overflow-hidden">
       <div className="container relative space-y-24 mb-24 lg:space-y-32 lg:mb-32">
