@@ -74,9 +74,9 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): a
           }
         />
 
-        <div className="mb-8 lg:mb-11">
+        {/* <div className="mb-8 lg:mb-11">
           <TabFilters />
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 gap-6 md:gap-8 xl:grid-cols-2 ">
           {data && data.data &&  data.data.map((property:any,index:number) => (
             <PropertyCard key={index} data={property} />
