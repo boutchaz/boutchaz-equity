@@ -15,7 +15,8 @@ import {
 } from 'react-query'
 
 const queryClient = new QueryClient()
-
+console.log('url',process.env.NEXT_PUBLIC_BACKEND_URL)
+console.log('key',process.env.NEXT_PUBLIC_BACKEND_API_KEY)
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="rtl:text-right bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">

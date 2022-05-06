@@ -8,3 +8,5 @@ project.tgz
 /logs
 /.web-cache
 /node_modules
+.env
+.vercel
