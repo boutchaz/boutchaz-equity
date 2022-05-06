@@ -1,56 +1,37 @@
 import { CustomLink } from "data/types";
 import React, { FC } from "react";
-import Link from "next/Link";
 import twFocusClass from "utils/twFocusClass";
 
-const DEMO_PAGINATION: CustomLink[] = [
-    {
-        label: "1",
-        href: "#",
-    },
-    {
-        label: "2",
-        href: "#",
-    },
-    {
-        label: "3",
-        href: "#",
-    },
-    {
-        label: "4",
-        href: "#",
-    },
-];
 
 export interface PaginationProps {
     className?: string;
+    pagination?: any;
+    currentPage?: number;
+    setPage: (âge: number) => void;
 }
 
-const Pagination: FC<PaginationProps> = ({ className = "" }) => {
+const Pagination: FC<PaginationProps> = ({ pagination,currentPage,setPage, className = "" }) => {
     const renderItem = (pag: CustomLink, index: number) => {
-        if (index === 0) {
+        if (index === currentPage) {
             // RETURN ACTIVE PAGINATION
             return (
-                <span
+                <button
                     key={index}
                     className={`inline-flex w-11 h-11 items-center justify-center rounded-full bg-primary-6000 text-white ${twFocusClass()}`}
+                    onClick={() => setPage(index)}
                 >
                     {pag.label}
-                </span>
+                </button>
             );
         }
         // RETURN UNACTIVE PAGINATION
         return (
-            <Link
-                key={index}
-                to={pag.href}
-            >
-                <a className={`inline-flex w-11 h-11 items-center justify-center rounded-full bg-white hover:bg-neutral-100 border border-neutral-200 text-neutral-6000 dark:text-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:border-neutral-700 ${twFocusClass()}`}
+                <button className={`inline-flex w-11 h-11 items-center justify-center rounded-full bg-white hover:bg-neutral-100 border border-neutral-200 text-neutral-6000 dark:text-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:border-neutral-700 ${twFocusClass()}`}
+                 onClick={() => setPage(index)}
                 >
                     {pag.label}
 
-                </a>
-            </Link>
+                </button>
         );
     };
 
@@ -58,7 +39,12 @@ const Pagination: FC<PaginationProps> = ({ className = "" }) => {
         <nav
             className={`nc-Pagination inline-flex space-x-1 text-base font-medium ${className}`}
         >
-            {DEMO_PAGINATION.map(renderItem)}
+            {[...Array(pagination.pageCount )].map((x, i) =>
+               renderItem({
+                label: 1+i+'',
+                href: '/',
+              }, i+1)
+            )}
         </nav>
     );
 };

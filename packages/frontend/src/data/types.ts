@@ -119,7 +119,7 @@ export interface CarDataType {
   date: string;
   href: string;
   title: string;
-  featuredImage: string;
+  featuredImage: any;
   commentCount: number;
   viewCount: number;
   address: string;

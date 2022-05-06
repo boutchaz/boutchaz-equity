@@ -45,7 +45,7 @@ const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
 
   const renderForm = () => {
     switch (tabActive) {
-      case "Buy":
+      case "buy":
         return <RealEstateSearchForm />;
 
       default:

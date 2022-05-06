@@ -3,7 +3,7 @@ import React from "react";
 
 export interface ButtonPrimaryProps extends ButtonProps {}
 
-const ButtonPrimary: React.FC<ButtonPrimaryProps & { className:string}> = ({
+const ButtonPrimary: React.FC<ButtonPrimaryProps & { className?:string,children:React.ReactNode}> = ({
   className = "",
   ...args
 }) => {
