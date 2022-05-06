@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "property",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bedrooms": {
+      "type": "integer"
+    },
+    "bathrooms": {
+      "type": "integer"
+    },
+    "space": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "hangar",
+        "penthouse",
+        "studio",
+        "triplex",
+        "riad",
+        "usine",
+        "chalet",
+        "bungalow",
+        "terrain",
+        "immeuble",
+        "duplex",
+        "maison",
+        "villa",
+        "Appartement"
+      ]
+    },
+    "isForSale": {
+      "type": "boolean"
+    },
+    "isForRent": {
+      "type": "boolean"
+    },
+    "galleryImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "priceForSale": {
+      "type": "integer"
+    },
+    "priceForRent": {
+      "type": "integer"
+    }
+  }
+}

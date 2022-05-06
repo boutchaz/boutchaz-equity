@@ -4,6 +4,8 @@ import { appWithTranslation } from 'next-i18next'
 import '@/styles/globals.css'
 import "@/styles/index.scss";
 import "rc-slider/assets/index.css";
+import "fonts/line-awesome-1.3.0/css/line-awesome.min.css";
+
 import {
   useQuery,
   useMutation,

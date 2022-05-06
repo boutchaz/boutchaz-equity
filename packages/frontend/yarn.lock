@@ -532,6 +532,11 @@
     postcss "7.0.32"
     purgecss "^2.3.0"
 
+"@glidejs/glide@^3.5.2":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.5.2.tgz#7012c5920ecf202bbda44d8526fc979984b6dd54"
+  integrity sha512-7jGciNJ2bQ4eZLSNlSZ+VAyW63kALf420CvkEpK4lEsUfWJq9odqimci0YCiyNyMUFB+pWHwLYyNc57dijYsCg==
+
 "@graphql-codegen/cli@^1.11.2":
   version "1.21.8"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-1.21.8.tgz#b30190b5e7f851952f04e0e2bdc9ec00349ccac6"
