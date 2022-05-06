@@ -1,6 +1,5 @@
 import { CustomLink } from "data/types";
 import React, { FC } from "react";
-import Link from "next/Link";
 import twFocusClass from "utils/twFocusClass";
 
 
