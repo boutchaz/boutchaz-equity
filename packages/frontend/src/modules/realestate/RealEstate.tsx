@@ -14,7 +14,7 @@ export interface SectionHero2Props {
   className?: string;
 }
 async function fetchProperties(page:number) {
-  const { data } = await client.get(`http://localhost:1337/api/properties?pagination[page]=${page}&pagination[pageSize]=5&populate=galleryImages`);
+  const { data } = await client.get(`properties?pagination[page]=${page}&pagination[pageSize]=5&populate=galleryImages`);
   return data
 }
 

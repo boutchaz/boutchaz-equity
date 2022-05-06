@@ -11,13 +11,13 @@ import { useQuery } from 'react-query'
 // import SEO from 'ui/SEO';
 // import { VariantTypes } from 'ui/uiTypes';
 
-async function fetchProperties() {
-  const { data } = await client.get('http://localhost:1337/api/contact');
+async function fetchContact() {
+  const { data } = await client.get('contact');
   return data
 }
 
 const Index = (className: any) => {
-  const { isLoading, isError, data, error } = useQuery('properties', fetchProperties);
+  const { isLoading, isError, data, error } = useQuery('properties', fetchContact);
   return (
     <Layout >
       {/* <SEO title="Contact || Booking React Template" description="" /> */}

@@ -1,7 +1,7 @@
 export interface IAppConfig {
     env: string;
     backend: {
-      url: string;
+      url: string | undefined;
       apiKey: string | undefined;
     };
   
@@ -10,7 +10,7 @@ export interface IAppConfig {
   const config: IAppConfig = {
     env: process.env.NODE_ENV || 'local',
     backend: {
-      url: process.env.NEXT_PUBLIC_BACKEND_URL || 'https://localhost:1337',
+      url: process.env.NEXT_PUBLIC_BACKEND_URL,
       apiKey: process.env.NEXT_PUBLIC_BACKEND_API_KEY,
     }
   

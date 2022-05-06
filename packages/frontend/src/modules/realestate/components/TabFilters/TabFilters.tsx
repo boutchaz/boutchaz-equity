@@ -38,7 +38,7 @@ const typeOfProperty = [
 //
 const moreFilter1 = typeOfProperty;
 async function fetchPropertiesTypes() {
-  const { data } = await client.get(`http://localhost:1337/api/property-types`);
+  const { data } = await client.get(`property-types`);
   return data
 }
 const TabFilters = () => {
