@@ -7,6 +7,7 @@ import { DEMO_STAY_LISTINGS } from "data/listings";
 // import Badge from "shared/Badge/Badge";
 // import { StayDataType } from "data/types";
 import Link from 'next/link';
+import config from 'config'
 
 
 export interface PropertyCardProps {
@@ -36,7 +37,7 @@ const PropertyCard: FC<PropertyCardProps> = ({
     } = data.attributes;
     let {id} = data;
     if (galleryImages?.data?.length) {
-        galleryImages = galleryImages?.data?.map((one:any)=>"http://localhost:1337"+one.attributes.url);
+        galleryImages = galleryImages?.data?.map((one:any)=>config.backend.url+one.attributes.url);
     }
     const renderSliderGallery = () => {
         return (
