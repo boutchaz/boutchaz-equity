@@ -5,7 +5,7 @@
  */
 
 module.exports = {
-  get: async (ctx, next) => {
+  getContactDetails: async (ctx, next) => {
     let phones = [
       '+212523351661',
       '+212630868986',

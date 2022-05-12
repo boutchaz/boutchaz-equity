@@ -5,7 +5,7 @@ module.exports = {
     {
      method: 'GET',
      path: '/contact',
-     handler: contact.get,
+     handler: contact.getContactDetails,
      config: {
        policies: [],
        middlewares: [],
