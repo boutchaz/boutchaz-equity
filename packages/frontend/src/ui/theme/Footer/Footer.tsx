@@ -1,5 +1,5 @@
 // import Logo from "shared/Logo/Logo";
-// import SocialsList1 from "shared/SocialsList1/SocialsList1";
+import SocialsList from "ui/SocialsList";
 // import { CustomLink } from "data/types";
 import React from "react";
 
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             {/* <Logo /> */}
           </div>
           <div className="col-span-2 flex items-center md:col-span-3">
-            {/* <SocialsList1 className="flex items-center space-x-3 lg:space-x-0 lg:flex-col lg:space-y-2.5 lg:items-start" /> */}
+            <SocialsList isFooter={true} className="flex items-center space-x-3 lg:space-x-0 lg:flex-col lg:space-y-2.5 lg:items-start" />
           </div>
         </div>
         {widgetMenus.map(renderWidgetMenuItem)}

@@ -74,7 +74,7 @@ const Index = (className: any) => {
                   <h3 className="uppercase font-semibold text-sm dark:text-neutral-200 tracking-wider">
                     🌏 SOCIALS
                   </h3>
-                  {data && <SocialsList socials={data.socials} className="mt-2" />}
+                  {data && <SocialsList socials={data?.socials} className="mt-2" />}
                 </div>
               </div>
               <div>
