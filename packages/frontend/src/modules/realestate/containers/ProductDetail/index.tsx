@@ -85,7 +85,7 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): a
               />
               <div className="absolute inset-0 bg-neutral-900 bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity"></div>
             </div>
-            {galleryImages.filter((_, i) => i >= 1 && i < 5).map((item, index) => (
+            {galleryImages.filter((_:any, i:number) => i >= 1 && i < 5).map((item:any, index:number) => (
               <div
                 key={index}
                 className={`relative rounded-md sm:rounded-xl overflow-hidden ${
