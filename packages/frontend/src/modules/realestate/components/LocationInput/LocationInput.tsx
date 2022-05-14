@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useEffect } from "react";
 import ClearDataButton from "./ClearDataButton";
 import { useRef } from "react";
+import citiesRaw from './data/cities.js'
 
 export interface LocationInputProps {
   defaultValue: string;
@@ -27,6 +28,7 @@ const LocationInput: FC<LocationInputProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [value, setValue] = useState(defaultValue);
+  const [cities, setCities] = useState<string[]>([]);
   const [showPopover, setShowPopover] = useState(autoFocus);
 
   useEffect(() => {
@@ -36,6 +38,14 @@ const LocationInput: FC<LocationInputProps> = ({
   useEffect(() => {
     setShowPopover(autoFocus);
   }, [autoFocus]);
+  const filterCity = (value: string) => {
+    console.log('filter')
+    // setCities(cities.filter((item) => item.toLowerCase().includes(value.toLowerCase())));
+    setValue(value)
+  }
+  useEffect(() => {
+    setCities(citiesRaw);
+  }, []);
 
   useEffect(() => {
     if (eventClickOutsideDiv) {
@@ -80,12 +90,15 @@ const LocationInput: FC<LocationInputProps> = ({
           Recent searches
         </h3>
         <div className="mt-2">
-          {[
-            "Hamptons, Suffolk County, NY",
-            "Las Vegas, NV, United States",
-            "Ueno, Taito, Tokyo",
-            "Ikebukuro, Toshima, Tokyo",
-          ].map((item) => (
+          {cities.filter((val) => {
+            console.log(value)
+            if (value == "") {
+              return val
+            }
+            else if (val.toLowerCase().includes(value.toLowerCase())) {
+              return val;
+            }
+          }).map((item) => (
             <span
               onClick={() => handleSelectLocation(item)}
               key={item}
@@ -120,12 +133,15 @@ const LocationInput: FC<LocationInputProps> = ({
   const renderSearchValue = () => {
     return (
       <>
-        {[
-          "Ha Noi, Viet Nam",
-          "San Diego, CA",
-          "Humboldt Park, Chicago, IL",
-          "Bangor, Northern Ireland",
-        ].map((item) => (
+        {cities.filter((val) => {
+            console.log(value)
+            if (value == "") {
+              return val
+            }
+            else if (val.toLowerCase().includes(value.toLowerCase())) {
+              return val;
+            }
+          }).map((item) => (
           <span
             onClick={() => handleSelectLocation(item)}
             key={item}
@@ -166,9 +182,8 @@ const LocationInput: FC<LocationInputProps> = ({
     <div className={`relative flex ${className}`} ref={containerRef}>
       <div
         onClick={() => setShowPopover(true)}
-        className={`flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  ${
-          showPopover ? "nc-hero-field-focused" : ""
-        }`}
+        className={`flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  ${showPopover ? "nc-hero-field-focused" : ""
+          }`}
       >
         <div className="text-neutral-300 dark:text-neutral-400">
           <svg
@@ -198,21 +213,65 @@ const LocationInput: FC<LocationInputProps> = ({
             placeholder={placeHolder}
             value={value}
             autoFocus={showPopover}
-            onChange={(e) => setValue(e.currentTarget.value)}
+            onChange={(e) => {
+              e.stopPropagation();
+              setValue(e.currentTarget.value)
+
+            }}
             ref={inputRef}
           />
           <span className="rtl:text-right block mt-0.5 text-sm text-neutral-400 font-light ">
             <span className="line-clamp-1">{!!value ? placeHolder : desc}</span>
           </span>
           {value && showPopover && (
-            <ClearDataButton onClick={() => setValue("")} />
+            <ClearDataButton onClick={() => {  setValue("") }} />
           )}
         </div>
       </div>
-      {showPopover && (
+      {showPopover && value && (
         <div className="absolute left-0 z-40 w-full min-w-[300px] sm:min-w-[500px] bg-white dark:bg-neutral-800 top-full mt-3 py-3 sm:py-6 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
-          {value ? renderSearchValue() : renderRecentSearches()}
-        </div>
+          {/* {value ? renderSearchValue() : renderRecentSearches()} */}
+          {cities.filter((val) => {
+            console.log(value)
+            if (value == "") {
+              return val
+            }
+            else if (val.toLowerCase().includes(value.toLowerCase())) {
+              return val;
+            }
+          }).map((item) => (
+          <span
+            onClick={() => handleSelectLocation(item)}
+            key={item}
+            className="flex px-4 sm:px-8 items-center space-x-3 sm:space-x-4 py-4 sm:py-5 hover:bg-neutral-100 dark:hover:bg-neutral-700 cursor-pointer"
+          >
+            <span className="block text-neutral-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 sm:h-6 sm:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </span>
+            <span className="block font-medium text-neutral-700 dark:text-neutral-200">
+              {item}
+            </span>
+          </span>
+        ))}        </div>
       )}
     </div>
   );

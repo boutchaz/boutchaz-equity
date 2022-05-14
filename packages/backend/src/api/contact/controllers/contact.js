@@ -6,30 +6,42 @@
 
 module.exports = {
   getContactDetails: async (ctx, next) => {
-    let phones = [
-      '+212523351661',
-      '+212630868986',
-    ];
-    let emails = [
-      'info@lahagroup.fr',
-      'info@lahagroup.fr',
-    ]
-    let socials = [
-      {'name': 'facebook', 'href': 'https://www.facebook.com/lahagroup/'},
-      {'name': 'twitter', 'href': 'https://twitter.com/lahagroup'},
-      {'name': 'youtube', 'href': 'https://www.linkedin.com/company/laha-group/'},
-      {'name': 'instagram', 'href': 'https://www.instagram.com/lahagroup/'},
-    ]
-    let addresses = [
-      '1 Rue de la République, 75001 Paris',
-      '1 Rue de la République, 75001 Paris',
-    ]
+    const entry = await strapi.entityService.findOne('api::contact.contact', 1);
     try {
       ctx.body = {
-        'phones': phones,
-        'emails':emails,
-        'socials':socials,
-        'addresses':addresses,
+        'phones': entry.phones,
+        'emails':entry.emails,
+        'socials':entry.socials,
+        'addresses':entry.addresses,
+      };
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+  sendEmail: async (ctx, next) => {
+    const emailTemplate = {
+      subject: 'Welcome to the Laha Group',
+      text: `Welcome on mywebsite.fr! Your account is now linked with:.`,
+      html: `<h1>Welcome on mywebsite.fr!</h1> <p>Your account is now linked with:.<p>`,
+    };
+    try {
+      await strapi.plugins['email'].services.email.sendTemplatedEmail(
+        {
+          to: 'zakaria.boutchamir@gmail.com',
+          // from: is not specified, so it's the defaultFrom that will be used instead
+        },
+        emailTemplate,
+        {
+          user: {},
+        }
+      );
+    } catch (error) {
+      console.log(error)
+    }
+ 
+    try {
+      ctx.body = {
+        'status':'success',
       };
     } catch (err) {
       ctx.body = err;

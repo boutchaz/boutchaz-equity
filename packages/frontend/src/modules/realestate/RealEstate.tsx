@@ -24,7 +24,6 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): a
   const router = useRouter()
   const { isLoading, isError, data, error } = useQuery(['properties',page], ()=> fetchProperties(page));
   
-  console.log(data)
   return (
     <>
       <div className="nc-PageHome2 relative overflow-hidden">
@@ -43,7 +42,7 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): a
               </div>
               <div className="relative flex flex-col-reverse items-start md:block pb-14 md:py-14 lg:py-20">
                 <div className="relative inline-flex">
-                  <div className="w-screen ltr:right-20 ltr:md:right-52 ltr:inset-y-0  rtl:inset-y-0 rtl:left-0 absolute bg-primary-500"></div>
+                  <div className="w-screen ltr:right-20 ltr:md:right-52 ltr:inset-y-0  rtl:inset-y-0 rtl:left-0 absolute bg-primary-500 rounded"></div>
                   <div className="relative max-w-3xl inline-flex flex-shrink-0 flex-col items-start py-16 sm:py-20 lg:py-24 space-y-8 sm:space-y-10 text-white">
                     {children ? (
                       children

@@ -2,7 +2,7 @@ import React from "react";
 import { FC } from "react";
 
 export interface ClearDataButtonProps {
-  onClick: () => void;
+  onClick: (e:any) => void;
 }
 
 const ClearDataButton: FC<ClearDataButtonProps> = ({ onClick }) => {

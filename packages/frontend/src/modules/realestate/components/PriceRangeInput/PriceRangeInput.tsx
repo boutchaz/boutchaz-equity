@@ -66,9 +66,9 @@ const PriceRangeInput: FC<PriceRangeInputProps> = ({
             </div>
             <div className="flex-grow">
               <span className="block xl:text-lg font-semibold truncate">
-                {`$${convertNumbThousand(
+                {`${convertNumbThousand(
                   rangePrices[0] / 1000
-                )}k ~ $${convertNumbThousand(rangePrices[1] / 1000)}k`}
+                )}k MADs ~ ${convertNumbThousand(rangePrices[1] / 1000)}k MADs`}
               </span>
               <span className="block mt-1 text-sm text-neutral-400 leading-none font-light ">
                 Choose price range
@@ -103,14 +103,14 @@ const PriceRangeInput: FC<PriceRangeInputProps> = ({
                     </label>
                     <div className="mt-1 relative rounded-md">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span className="text-neutral-500 sm:text-sm">$</span>
+                        <span className="text-neutral-500 sm:text-sm">MAD</span>
                       </div>
                       <input
                         type="text"
                         disabled
                         name="minPrice"
                         id="minPrice"
-                        className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
+                        className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-12 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
                         value={convertNumbThousand(rangePrices[0])}
                       />
                     </div>
@@ -124,14 +124,14 @@ const PriceRangeInput: FC<PriceRangeInputProps> = ({
                     </label>
                     <div className="mt-1 relative rounded-md">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span className="text-neutral-500 sm:text-sm">$</span>
+                        <span className="text-neutral-500 sm:text-sm">MAD</span>
                       </div>
                       <input
                         disabled
                         type="text"
                         name="maxPrice"
                         id="maxPrice"
-                        className="focus:ring-primary-500 focus:border-priring-primary-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
+                        className="focus:ring-primary-500 focus:border-priring-primary-500 block w-full pl-12 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
                         value={convertNumbThousand(rangePrices[1])}
                       />
                     </div>

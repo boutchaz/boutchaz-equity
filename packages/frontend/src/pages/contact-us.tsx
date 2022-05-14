@@ -7,6 +7,7 @@ import ButtonPrimary from 'ui/Button/ButtonPrimary';
 import Textarea from 'ui/Textarea';
 import client from 'utils/axios'
 import { useQuery } from 'react-query'
+import { useForm } from "react-hook-form";
 
 // import SEO from 'ui/SEO';
 // import { VariantTypes } from 'ui/uiTypes';
@@ -15,9 +16,17 @@ async function fetchContact() {
   const { data } = await client.get('contact');
   return data
 }
-
+async function sendEmail(payload:any) {
+  const { data } = await client.post('contact',payload);
+  return data
+}
 const Index = (className: any) => {
   const { isLoading, isError, data, error } = useQuery('properties', fetchContact);
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = async(data:any) => {
+    const response  = await sendEmail(data);
+    console.log(response)
+  };
   return (
     <Layout >
       {/* <SEO title="Contact || Booking React Template" description="" /> */}
@@ -78,14 +87,15 @@ const Index = (className: any) => {
                 </div>
               </div>
               <div>
-                <form className="grid grid-cols-1 gap-6" action="#" method="post">
+                <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit(onSubmit)}>
                   <label className="block">
                     <Label>Full name</Label>
   
                     <Input
-                      placeholder="Example Doe"
+                      placeholder="Mohammed Mohammed"
                       type="text"
                       className="mt-1"
+                      {...register("fullname")}
                     />
                   </label>
                   <label className="block">
@@ -95,12 +105,13 @@ const Index = (className: any) => {
                       type="email"
                       placeholder="example@example.com"
                       className="mt-1"
+                      {...register("email")}
                     />
                   </label>
                   <label className="block">
                     <Label>Message</Label>
 
-                    <Textarea className="mt-1" rows={6} />
+                    <Textarea className="mt-1" rows={6}   {...register("message")}/>
                   </label>
                   <div>
                     <ButtonPrimary type="submit">Send Message</ButtonPrimary>

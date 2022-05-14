@@ -135,12 +135,11 @@ const PropertyCard: FC<PropertyCardProps> = ({
 
     return (
         <div
-            className={`nc-PropertyCard group relative bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow ${className}`}
+            className={`nc-PropertyCard group relative bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-3xl overflow-hidden shadow-xl transition-shadow ${className}`}
             data-nc-id="PropertyCard"
         >
             <Link
-                href={'/'}
-
+                href={`/property/${id}`}
             >
                 <a className="h-full w-full flex flex-col sm:flex-row sm:items-center">
                     {renderSliderGallery()}

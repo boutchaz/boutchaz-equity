@@ -7,13 +7,14 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "debug": "node --inspect=127.0.0.1:9229 ./node_modules/@strapi/strapi/bin/strapi.js develop"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.1.9",
-    "@strapi/plugin-users-permissions": "4.1.9",
     "@strapi/plugin-i18n": "4.1.9",
+    "@strapi/plugin-users-permissions": "4.1.9",
+    "@strapi/provider-email-sendgrid": "^4.1.11",
+    "@strapi/strapi": "4.1.9",
     "pg": "8.6.0"
   },
   "author": {

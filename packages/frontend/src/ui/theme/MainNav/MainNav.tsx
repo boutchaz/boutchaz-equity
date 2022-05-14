@@ -3,7 +3,7 @@ import Logo from "ui/Logo/Logo";
 import Navigation from "ui/Navigation";
 // import SearchDropdown from "./SearchDropdown";
 // import ButtonPrimary from "@/ui/Button/ButtonPrimary";
-// import MenuBar from "@/ui/MenuBar/MenuBar";
+import MenuBar from "@/ui/MenuBar";
 import SwitchDarkMode from "ui/SwitchDarkMode";
 import SwitchLanguage from "ui/SwitchLanguage";
 
@@ -34,7 +34,7 @@ const MainNav: FC<MainNavProps> = ({ isTop }) => {
           <div className="flex items-center xl:hidden">
             {/* <SwitchDarkMode /> */}
             <div className="px-1" />
-            {/* <MenuBar /> */}
+            <MenuBar />
           </div>
         </div>
       </div>

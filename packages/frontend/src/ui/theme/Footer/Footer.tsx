@@ -21,17 +21,17 @@ const widgetMenus: WidgetFooterMenu[] = [
   //     { href: "#", label: "Editor Support" },
   //   ],
   // },
-  {
-    id: "1",
-    title: "Explore",
-    menus: [
-      { href: "#", label: "Design" },
-      { href: "#", label: "Prototyping" },
-      { href: "#", label: "Design systems" },
-      { href: "#", label: "Pricing" },
-      { href: "#", label: "Security" },
-    ],
-  },
+  // {
+  //   id: "1",
+  //   title: "Explore",
+  //   menus: [
+  //     { href: "#", label: "Design" },
+  //     { href: "#", label: "Prototyping" },
+  //     { href: "#", label: "Design systems" },
+  //     { href: "#", label: "Pricing" },
+  //     { href: "#", label: "Security" },
+  //   ],
+  // },
   // {
   //   id: "2",
   //   title: "Resources",

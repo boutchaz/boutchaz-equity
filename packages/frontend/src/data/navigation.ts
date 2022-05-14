@@ -299,7 +299,12 @@ export const NAVIGATION_DEMO: NavItemType[] = [
   //   type: "dropdown",
   //   children: templatesChildrenMenus,
   // },
-
+  {
+    id: ncNanoId(),
+    href: "/about-us",
+    name: "About Us",
+    type: "none",
+  },
   {
     id: ncNanoId(),
     href: "/contact-us",

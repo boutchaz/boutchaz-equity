@@ -11,5 +11,14 @@ module.exports = {
        middlewares: [],
      },
     },
+    {
+      method: 'POST',
+      path: '/contact',
+      handler: contact.sendEmail,
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+     },
   ],
 };

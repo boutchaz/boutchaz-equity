@@ -8,6 +8,7 @@ import convertNumbThousand from "utils/convertNumbThousand";
 import  Range from "rc-slider";
 import { useQuery } from 'react-query'
 import client from 'utils/axios'
+import config from 'config'
 
 // import NcInputNumber from "components/NcInputNumber/NcInputNumber";
 
@@ -50,7 +51,6 @@ const TabFilters = () => {
   const closeModalMoreFilter = () => setisOpenMoreFilter(false);
   const openModalMoreFilter = () => setisOpenMoreFilter(true);
   const { isLoading, isError, data, error } = useQuery('propertiesTypes', ()=> fetchPropertiesTypes());
-  console.log(data)
   const renderXClear = () => {
     return (
       <span className="w-4 h-4 rounded-full bg-primary-500 text-white flex items-center justify-center ml-3 cursor-pointer">
@@ -205,7 +205,7 @@ const TabFilters = () => {
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              MAD
                             </span>
                           </div>
                           <input
@@ -228,7 +228,7 @@ const TabFilters = () => {
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              MAD
                             </span>
                           </div>
                           <input
@@ -428,7 +428,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                      MAD
                                     </span>
                                   </div>
                                   <input
@@ -451,7 +451,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                      MAD
                                     </span>
                                   </div>
                                   <input
