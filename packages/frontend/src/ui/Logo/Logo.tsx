@@ -21,8 +21,13 @@ const Logo: React.FC<LogoProps> = ({
             href="/"
 
         ><a className={`ttnc-logo inline-block text-primary-6000 ${className}`}>
-                <LogoSvgLight />
-                <LogoSvg />
+                {/* <LogoSvgLight /> */}
+                <img
+          className={`block max-h-12 ${imgLight ? "dark:hidden" : ""}`}
+          src={'/images/logo_purple.png'}
+          alt="Logo"
+        />
+                {/* <LogoSvg /> */}
 
                 {/* THIS USE FOR MY CLIENT */}
                 {/* PLEASE UN COMMENT BELLOW CODE AND USE IT */}
