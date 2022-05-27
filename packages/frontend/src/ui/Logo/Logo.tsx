@@ -2,8 +2,8 @@ import React from "react";
 import Link from 'next/link';
 // import logoImg from "images/logo.png";
 // import logoLightImg from "images/logo-light.png";
-import LogoSvgLight from "./LogoSvgLight";
-import LogoSvg from "./LogoSvg";
+// import LogoSvgLight from "./LogoSvgLight";
+// import LogoSvg from "./LogoSvg";
 
 export interface LogoProps {
     img?: string;
@@ -23,7 +23,7 @@ const Logo: React.FC<LogoProps> = ({
         ><a className={`ttnc-logo inline-block text-primary-6000 ${className}`}>
                 {/* <LogoSvgLight /> */}
                 <img
-          className={`block max-h-12 ${imgLight ? "dark:hidden" : ""}`}
+          className={`block max-h-20 ${imgLight ? "dark:hidden" : ""}`}
           src={'/images/logo_purple.png'}
           alt="Logo"
         />

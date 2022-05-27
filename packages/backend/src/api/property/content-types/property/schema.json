@@ -65,6 +65,9 @@
     },
     "priceForRent": {
       "type": "integer"
+    },
+    "city": {
+      "type": "string"
     }
   }
 }

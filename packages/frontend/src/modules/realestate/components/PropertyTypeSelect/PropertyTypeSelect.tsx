@@ -32,6 +32,7 @@ const typeOfProperty = [
 
 export interface PropertyTypeSelectProps {
   onChange?: (data: any) => void;
+  register:any;
   fieldClassName?: string;
 }
 
@@ -41,13 +42,14 @@ async function fetchPropertyContentTypes() {
 }
 const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
   onChange,
+  register,
   fieldClassName = "[ nc-hero-field-padding ]",
 }) => {
   const { t, lang } = useTranslation('common');
   let { isLoading, isError, data, error } = useQuery('property-content-types', ()=> fetchPropertyContentTypes());
   let contentTypes:any = []
   contentTypes = data?.contentTypes.map((one:any)=>{
-    return {name:one, checked:false}})
+    return {id:one,name:one, checked:false}})
   return (
     <Popover className="flex relative [ nc-flex-1 ]">
       {({ open, close }) => (
@@ -92,15 +94,15 @@ const PropertyTypeSelect: FC<PropertyTypeSelectProps> = ({
             <Popover.Panel className="absolute left-0 z-10 w-full sm:min-w-[340px] max-w-sm bg-white dark:bg-neutral-800 top-full mt-3 py-5 sm:py-6 px-4 sm:px-8 rounded-3xl shadow-xl">
               <div className="">
                 <div className="relative flex flex-col space-y-5">
-                  {contentTypes && contentTypes.map((item:any) => (
-                    <div key={item.name} className="">
+                  {contentTypes && contentTypes.map((item:any,index:number) => (
                       <Checkbox
+                        key={item.id}
+                        register={register}
                         name={item.name}
                         label={item.name}
                         subLabel={item?.description}
                         defaultChecked={item.checked}
                       />
-                    </div>
                   ))}
                 </div>
               </div>

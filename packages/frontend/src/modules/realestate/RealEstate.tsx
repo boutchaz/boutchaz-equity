@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC,useState } from "react";
 
 import HeroRealEstateSearchForm from "@/modules/realestate/components/HeroRealEstateSearchForm";
 import Heading from "@/modules/realestate/components/Heading";
@@ -8,22 +8,32 @@ import Pagination from "@/modules/realestate/components/Pagination";
 
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
-import { useQuery } from 'react-query'
+import { useQuery , useQueryClient} from 'react-query'
+
 import client from 'utils/axios'
 export interface SectionHero2Props {
   className?: string;
 }
-async function fetchProperties(page:number) {
-  const { data } = await client.get(`properties?pagination[page]=${page}&pagination[pageSize]=5&populate=galleryImages`);
+async function fetchProperties(page:number,location?:string,rangePrices?:number[]) {
+  let endpoint = `properties?pagination[page]=${page}&pagination[pageSize]=5&populate=galleryImages`
+  if(location){
+    endpoint += '&filters[city][$eq]='+location.toLowerCase();
+  }
+  const { data } = await client.get(endpoint);
   return data
 }
 
 const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): any => {
   const [page, setPage] = React.useState(1)
+  const queryClient = useQueryClient()
   const { t } = useTranslation('common');
+  const [locationInputValue, setLocationInputValue] = useState("");
+  const [rangePrices, setRangePrices] = useState([100000, 4000000]);
   const router = useRouter()
-  const { isLoading, isError, data, error } = useQuery(['properties',page], ()=> fetchProperties(page));
-  
+  const { isLoading, isError, data, error } = useQuery(['properties',page,locationInputValue,rangePrices], ()=> fetchProperties(page,locationInputValue,rangePrices));
+  const onSubmit = async ()=>{
+    // await queryClient.refetchQueries('properties')
+  }
   return (
     <>
       <div className="nc-PageHome2 relative overflow-hidden">
@@ -54,7 +64,13 @@ const RealEstate: FC<SectionHero2Props> = ({ className = "", children }: any): a
                   </div>
                 </div>
                 <div className="mb-10 md:mb-0 md:mt-10 lg:mt-20 w-full">
-                  <HeroRealEstateSearchForm />
+                  <HeroRealEstateSearchForm 
+                  locationInputValue ={locationInputValue}
+                  setLocationInputValue={setLocationInputValue}
+                  rangePrices={rangePrices}
+                  setRangePrices={setRangePrices}
+                  onSubmit={onSubmit}
+                  />
                 </div>
               </div>
             </div>

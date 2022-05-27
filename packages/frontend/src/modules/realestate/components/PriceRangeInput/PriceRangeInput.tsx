@@ -5,15 +5,16 @@ import  Range from "rc-slider";
 import convertNumbThousand from "utils/convertNumbThousand";
 
 export interface PriceRangeInputProps {
-  onChange?: (data: number) => void;
+  rangePrices:number[];
+  setRangePrices?:any;
   fieldClassName?: string;
 }
 
 const PriceRangeInput: FC<PriceRangeInputProps> = ({
-  onChange,
+  rangePrices,
+  setRangePrices,
   fieldClassName = "[ nc-hero-field-padding ]",
 }) => {
-  const [rangePrices, setRangePrices] = useState([100000, 4000000]);
 
   return (
     <Popover className="flex relative [ nc-flex-1 ]">
@@ -88,7 +89,6 @@ const PriceRangeInput: FC<PriceRangeInputProps> = ({
                     defaultValue={[rangePrices[0], rangePrices[1]]}
                     allowCross={false}
                     step={1000}
-                    // onChange={setRangePrices}
                     onChange={(values:number | number[]) => {setRangePrices(values as number[])}}
                   />
                 </div>

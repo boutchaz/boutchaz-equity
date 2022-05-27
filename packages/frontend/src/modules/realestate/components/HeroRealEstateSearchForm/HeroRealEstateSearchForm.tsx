@@ -8,11 +8,22 @@ export type SearchRealEstateTab = "buy" | "rent" | "Sell";
 export interface HeroRealEstateSearchFormProps {
   className?: string;
   currentTab?: SearchRealEstateTab;
+  locationInputValue: string;
+  setLocationInputValue: any;
+  rangePrices: any;
+  setRangePrices: any;
+  onSubmit: any;
 }
 
 const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
   className = "",
   currentTab = "buy",
+  locationInputValue,
+  setLocationInputValue,
+  rangePrices,
+  setRangePrices,
+  onSubmit
+
 }) => {
   const tabs: SearchRealEstateTab[] = ["buy", "rent"];
   const [tabActive, setTabActive] = useState<SearchRealEstateTab>(currentTab);
@@ -27,8 +38,8 @@ const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
             <li
               onClick={() => setTabActive(tab)}
               className={`flex  rtl:ml-10 items-center cursor-pointer text-sm lg:text-base font-medium ${active
-                  ? ""
-                  : "text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-100"
+                ? ""
+                : "text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-100"
                 } `}
               key={tab}
             >
@@ -46,10 +57,20 @@ const HeroRealEstateSearchForm: FC<HeroRealEstateSearchFormProps> = ({
   const renderForm = () => {
     switch (tabActive) {
       case "buy":
-        return <RealEstateSearchForm />;
+        return <RealEstateSearchForm locationInputValue={locationInputValue}
+          setLocationInputValue={setLocationInputValue}
+          rangePrices={rangePrices}
+          setRangePrices={setRangePrices} 
+          onSubmit={onSubmit}
+          />;
 
       default:
-        return <RealEstateSearchForm />;
+        return <RealEstateSearchForm locationInputValue={locationInputValue}
+          setLocationInputValue={setLocationInputValue}
+          rangePrices={rangePrices}
+          setRangePrices={setRangePrices} 
+          onSubmit={onSubmit}
+          />;
     }
   };
 

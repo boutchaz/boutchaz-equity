@@ -91,7 +91,6 @@ const LocationInput: FC<LocationInputProps> = ({
         </h3>
         <div className="mt-2">
           {cities.filter((val) => {
-            console.log(value)
             if (value == "") {
               return val
             }
@@ -134,7 +133,6 @@ const LocationInput: FC<LocationInputProps> = ({
     return (
       <>
         {cities.filter((val) => {
-            console.log(value)
             if (value == "") {
               return val
             }
@@ -232,7 +230,6 @@ const LocationInput: FC<LocationInputProps> = ({
         <div className="absolute left-0 z-40 w-full min-w-[300px] sm:min-w-[500px] bg-white dark:bg-neutral-800 top-full mt-3 py-3 sm:py-6 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
           {/* {value ? renderSearchValue() : renderRecentSearches()} */}
           {cities.filter((val) => {
-            console.log(value)
             if (value == "") {
               return val
             }
